@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="">Sort</label>
+                            <label for="">Sort</label><br />
                             @Html.RadioButtonFor(model => model.Sort, "1")
                             @Html.RadioButtonFor(model => model.Sort, "2")
                             @Html.ValidationMessageFor(model => model.Sort, "", new { @class = "text-danger" })

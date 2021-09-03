@@ -79,12 +79,18 @@ namespace OnlineOrder.Areas.Admin.Controllers
                 image.SaveAs(urlImage);
                 //url
                 config.Image = "~/ImageStored/Configs/" + fileName;
+                if (ModelState.IsValid)
+                {
+                    db.Configs.Add(config);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-            if (ModelState.IsValid)
+            else
             {
-                db.Configs.Add(config);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.Message = "You have not specified a file.";
+                ViewBag.Color = "red";
+                return View("Create");
             }
             return View(config);
         }
@@ -111,20 +117,26 @@ namespace OnlineOrder.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Key,Data,Link,Status")] Config config, HttpPostedFileBase image)
         {
-            if (ModelState.IsValid)
+            if (image != null && image.ContentLength > 0)
             {
-                if (image != null && image.ContentLength > 0)
+                string fileName = System.IO.Path.GetFileName(image.FileName);
+                //stored image
+                string urlImage = Server.MapPath("~/ImageStored/Configs/" + fileName);
+                image.SaveAs(urlImage);
+                //url
+                config.Image = "~/ImageStored/Configs/" + fileName;
+                if (ModelState.IsValid)
                 {
-                    string fileName = System.IO.Path.GetFileName(image.FileName);
-                    //stored image
-                    string urlImage = Server.MapPath("~/ImageStored/Configs/" + fileName);
-                    image.SaveAs(urlImage);
-                    //url
-                    config.Image = "~/ImageStored/Configs/" + fileName;
+                    db.Entry(config).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
                 }
-                db.Entry(config).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+                ViewBag.Color = "red";
+                return View("Edit");
             }
             return View(config);
         }

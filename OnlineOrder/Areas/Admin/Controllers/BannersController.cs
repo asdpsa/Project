@@ -81,14 +81,19 @@ namespace OnlineOrder.Areas.Admin.Controllers
                 image.SaveAs(urlImage);
                 //url
                 banner.Image = "~/ImageStored/Banners/" + fileName;
+                if (ModelState.IsValid)
+                {
+                    db.Banners.Add(banner);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-            if (ModelState.IsValid)
+            else
             {
-                db.Banners.Add(banner);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.Message = "You have not specified a file.";
+                ViewBag.Color = "red";
+                return View("Create");
             }
-
             return View(banner);
         }
 
@@ -114,20 +119,26 @@ namespace OnlineOrder.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Sort,Description")] Banner banner, HttpPostedFileBase image)
         {
-            if (ModelState.IsValid)
+            if (image != null && image.ContentLength > 0)
             {
-                if (image != null && image.ContentLength > 0)
+                string fileName = System.IO.Path.GetFileName(image.FileName);
+                //stored image
+                string urlImage = Server.MapPath("~/ImageStored/Banners/" + fileName);
+                image.SaveAs(urlImage);
+                //url
+                banner.Image = "~/ImageStored/Banners/" + fileName;
+                if (ModelState.IsValid)
                 {
-                    string fileName = System.IO.Path.GetFileName(image.FileName);
-                    //stored image
-                    string urlImage = Server.MapPath("~/ImageStored/Banners/" + fileName);
-                    image.SaveAs(urlImage);
-                    //url
-                    banner.Image = "~/ImageStored/Banners/" + fileName;
+                    db.Entry(banner).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
                 }
-                db.Entry(banner).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+                ViewBag.Color = "red";
+                return View("Edit");
             }
             return View(banner);
         }

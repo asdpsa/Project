@@ -8,7 +8,6 @@ namespace OnlineOrder.Models
 {
     public class BannersValidation
     {
-        [Required]
         public string Image { get; set; }
         [Required]
         public Nullable<byte> Sort { get; set; }

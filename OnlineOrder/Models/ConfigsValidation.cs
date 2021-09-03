@@ -8,7 +8,6 @@ namespace OnlineOrder.Models
 {
     public partial class ConfigsValidation
     {
-        [Required]
         public string Image { get; set; }
         [Required]
         public string Key { get; set; }

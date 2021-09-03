@@ -81,12 +81,18 @@ namespace OnlineOrder.Areas.Admin.Controllers
                 image.SaveAs(urlImage);
                 //url
                 advertisement.Image = "~/ImageStored/Advertisements/" + fileName;
+                if (ModelState.IsValid)
+                {
+                    db.Advertisements.Add(advertisement);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-            if (ModelState.IsValid)
+            else
             {
-                db.Advertisements.Add(advertisement);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.Message = "You have not specified a file.";
+                ViewBag.Color = "red";
+                return View("Create");
             }
             return View(advertisement);
         }
@@ -113,20 +119,26 @@ namespace OnlineOrder.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Key,Description")] Advertisement advertisement, HttpPostedFileBase image)
         {
-            if (ModelState.IsValid)
+            if (image != null && image.ContentLength > 0)
             {
-                if (image != null && image.ContentLength > 0)
+                string fileName = System.IO.Path.GetFileName(image.FileName);
+                //stored image
+                string urlImage = Server.MapPath("~/ImageStored/Advertisements/" + fileName);
+                image.SaveAs(urlImage);
+                //url
+                advertisement.Image = "~/ImageStored/Advertisements/" + fileName;
+                if (ModelState.IsValid)
                 {
-                    string fileName = System.IO.Path.GetFileName(image.FileName);
-                    //stored image
-                    string urlImage = Server.MapPath("~/ImageStored/Advertisements/" + fileName);
-                    image.SaveAs(urlImage);
-                    //url
-                    advertisement.Image = "~/ImageStored/Advertisements/" + fileName;
+                    db.Entry(advertisement).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
                 }
-                db.Entry(advertisement).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+                ViewBag.Color = "red";
+                return View("Edit");
             }
             return View(advertisement);
         }

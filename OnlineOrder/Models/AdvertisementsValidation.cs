@@ -8,7 +8,6 @@ namespace OnlineOrder.Models
 {
     public class AdvertisementsValidation
     {
-        [Required]
         public string Image { get; set; }
         [Required]
         public string Key { get; set; }

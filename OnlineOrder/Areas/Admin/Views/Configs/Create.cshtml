@@ -25,6 +25,15 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Status:</label><br />
+                            @Html.RadioButtonFor(model => model.Status, "1") <label style="margin-right:20px">Visible</label> 
+                            @Html.RadioButtonFor(model => model.Status, "2") <label>Unvisible</label>
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -46,15 +55,6 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="">Status</label>
-                            @Html.RadioButtonFor(model => model.Status, "1")
-                            @Html.RadioButtonFor(model => model.Status, "2")
-                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Key</label>

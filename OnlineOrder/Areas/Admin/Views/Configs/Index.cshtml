@@ -43,7 +43,7 @@
                 <th>
                     <label>Link</label>
                 </th>
-                <th>
+                <th style="width:40px">
                     <label>Status</label>
                 </th>
                 <th></th>
@@ -65,7 +65,14 @@
                         @Html.DisplayFor(modelItem => item.Link)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Status)
+                        @if (item.Status == 1)
+                        {
+                            <p>Visible</p>
+                        }
+                        else
+                        {
+                            <p>Unvisible</p>
+                        }
                     </td>
                     <td style="width:60px">
                         <a href="@Url.Action("Details","Configs", new { id = item.Id })" class="btn btn-default fa fa-search"></a><br />

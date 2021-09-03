@@ -37,7 +37,7 @@ namespace OnlineOrder.Areas.Admin.Controllers
                     //tạo truy vấn theo trường Key có chứa chuỗi searchString 
                     links = (IOrderedQueryable<Advertisement>)links.Where(s => s.Key.Contains(searchString));
                 }
-                return View(links.ToPagedList(pageNumber,pageSize));
+                return View(links.ToPagedList(pageNumber, pageSize));
             }
             else
             {
@@ -88,7 +88,6 @@ namespace OnlineOrder.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(advertisement);
         }
 
@@ -112,7 +111,7 @@ namespace OnlineOrder.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Key,Description")] Advertisement advertisement,HttpPostedFileBase image)
+        public ActionResult Edit([Bind(Include = "Id,Key,Description")] Advertisement advertisement, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {

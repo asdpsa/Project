@@ -1,0 +1,319 @@
+@font-face {
+  font-family: 'kazen-font';
+  src:  url('fonts/kazen-font.eot?nwljdr');
+  src:  url('fonts/kazen-font.eot?nwljdr#iefix') format('embedded-opentype'),
+    url('fonts/kazen-font.ttf?nwljdr') format('truetype'),
+    url('fonts/kazen-font.woff?nwljdr') format('woff'),
+    url('fonts/kazen-font.svg?nwljdr#kazen-font') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="kz-"], [class*=" kz-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'kazen-font' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.kz-angle-left:before {
+  content: "\e900";
+}
+.kz-angle-right:before {
+  content: "\e901";
+}
+.kz-angle-down:before {
+  content: "\e902";
+}
+.kz-angle-up:before {
+  content: "\e903";
+}
+.kz-arrow-double-left:before {
+  content: "\e904";
+}
+.kz-arrow-double-right:before {
+  content: "\e905";
+}
+.kz-long-arrow-left:before {
+  content: "\e972";
+}
+.kz-long-arrow-right:before {
+  content: "\e906";
+}
+.kz-up-top:before {
+  content: "\e94f";
+}
+.kz-next-arrow:before {
+  content: "\e907";
+}
+.kz-swap-horizontal:before {
+  content: "\e908";
+}
+.kz-enlarge:before {
+  content: "\e950";
+}
+.kz-angle-down-small:before {
+  content: "\e909";
+}
+.kz-unfold-more:before {
+  content: "\e90a";
+}
+.kz-close-o:before {
+  content: "\e90b";
+}
+.kz-close:before {
+  content: "\e90c";
+}
+.kz-check-square:before {
+  content: "\e90d";
+}
+.kz-check-o:before {
+  content: "\e90e";
+}
+.kz-ban:before {
+  content: "\e90f";
+}
+.kz-check:before {
+  content: "\e910";
+}
+.kz-square:before {
+  content: "\e911";
+}
+.kz-plus:before {
+  content: "\e912";
+}
+.kz-minus:before {
+  content: "\e96e";
+}
+.kz-plus-square:before {
+  content: "\e913";
+}
+.kz-minu-square:before {
+  content: "\e914";
+}
+.kz-update-refresh:before {
+  content: "\e915";
+}
+.kz-refresh:before {
+  content: "\e951";
+}
+.kz-area:before {
+  content: "\e916";
+}
+.kz-shower:before {
+  content: "\e917";
+}
+.kz-bed:before {
+  content: "\e918";
+}
+.kz-garage:before {
+  content: "\e919";
+}
+.kz-car-parking:before {
+  content: "\e91a";
+}
+.kz-grid-two:before {
+  content: "\e91b";
+}
+.kz-squares:before {
+  content: "\e91c";
+}
+.kz-grid-three:before {
+  content: "\e91d";
+}
+.kz-list:before {
+  content: "\e91e";
+}
+.kz-add-list:before {
+  content: "\e91f";
+}
+.kz-attached:before {
+  content: "\e920";
+}
+.kz-chat:before {
+  content: "\e921";
+}
+.kz-user:before {
+  content: "\e922";
+}
+.kz-phone:before {
+  content: "\e923";
+}
+.kz-phone-end:before {
+  content: "\e924";
+}
+.kz-mobile:before {
+  content: "\e925";
+}
+.kz-email:before {
+  content: "\e926";
+}
+.kz-share:before {
+  content: "\e927";
+}
+.kz-skype:before {
+  content: "\e928";
+}
+.kz-star-line:before {
+  content: "\e929";
+}
+.kz-star-line-half:before {
+  content: "\e970";
+}
+.kz-star-fill:before {
+  content: "\e96f";
+}
+.kz-star-fill-half:before {
+  content: "\e971";
+}
+.kz-search-space:before {
+  content: "\e92a";
+}
+.kz-search:before {
+  content: "\e92b";
+}
+.kz-cart:before {
+  content: "\e952";
+}
+.kz-bag:before {
+  content: "\e953";
+}
+.kz-send:before {
+  content: "\e92c";
+}
+.kz-bar-code:before {
+  content: "\e92d";
+}
+.kz-bolt-fill:before {
+  content: "\e92e";
+}
+.kz-bolt-line:before {
+  content: "\e92f";
+}
+.kz-calendar:before {
+  content: "\e930";
+}
+.kz-camera:before {
+  content: "\e931";
+}
+.kz-chart:before {
+  content: "\e932";
+}
+.kz-earth:before {
+  content: "\e933";
+}
+.kz-map:before {
+  content: "\e934";
+}
+.kz-location:before {
+  content: "\e935";
+}
+.kz-pin:before {
+  content: "\e936";
+}
+.kz-target:before {
+  content: "\e937";
+}
+.kz-pic:before {
+  content: "\e938";
+}
+.kz-print:before {
+  content: "\e939";
+}
+.kz-link:before {
+  content: "\e93a";
+}
+.kz-eye:before {
+  content: "\e93b";
+}
+.kz-fire:before {
+  content: "\e93c";
+}
+.kz-number-one:before {
+  content: "\e954";
+}
+.kz-few:before {
+  content: "\e955";
+}
+.kz-folder-left:before {
+  content: "\e93d";
+}
+.kz-folder:before {
+  content: "\e93e";
+}
+.kz-heart:before {
+  content: "\e93f";
+}
+.kz-heart-fill:before {
+  content: "\e958";
+}
+.kz-info-round:before {
+  content: "\e940";
+}
+.kz-key:before {
+  content: "\e941";
+}
+.kz-lock:before {
+  content: "\e956";
+}
+.kz-log-out:before {
+  content: "\e942";
+}
+.kz-setting:before {
+  content: "\e943";
+}
+.kz-filter:before {
+  content: "\e957";
+}
+.kz-trash:before {
+  content: "\e944";
+}
+.kz-video:before {
+  content: "\e945";
+}
+.kz-card:before {
+  content: "\e946";
+}
+.kz-car:before {
+  content: "\e947";
+}
+.kz-schedule:before {
+  content: "\e948";
+}
+.kz-linkedin:before {
+  content: "\e949";
+}
+.kz-twitter:before {
+  content: "\e94a";
+}
+.kz-pinterest:before {
+  content: "\e94b";
+}
+.kz-google-plus:before {
+  content: "\e94c";
+}
+.kz-instagram:before {
+  content: "\e94d";
+}
+.kz-facebook:before {
+  content: "\e94e";
+}

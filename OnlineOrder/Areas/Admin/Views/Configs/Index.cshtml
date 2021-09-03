@@ -1,0 +1,82 @@
+﻿@model PagedList.IPagedList<OnlineOrder.Models.Config>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/MainLayoutAdmin.cshtml";
+}
+<section class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-7">
+                    <h2>Configs</h2>
+                </div>
+                <div class="col-md-4">
+                    <form class="input-form" role="form">
+                        <div class="input-group">
+                            @using (Html.BeginForm("Index", "Advertisements", FormMethod.Get)) // -- phần thay đổi
+                            {
+                                <div class="input-group-append">
+                                    @Html.TextBox("SearchString", null, new { @placeholder = "Search...", @class = "form-control" })
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            }
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <table class="table">
+            <tr>
+                <th style="width:130px;">
+                    <label>Image</label>
+                </th>
+                <th>
+                    <label>Key</label>
+                </th>
+                <th>
+                    <label>Data</label>
+                </th>
+                <th>
+                    <label>Link</label>
+                </th>
+                <th>
+                    <label>Status</label>
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@Url.Content(item.Image)" alt="@item.Image" style="width:130px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Key)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Link)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td style="width:60px">
+                        <a href="@Url.Action("Details","Configs", new { id = item.Id })" class="btn btn-default fa fa-search"></a><br />
+                        <a href="@Url.Action("Edit", "Configs", new { id = item.Id})" class="btn btn-success fa fa-edit"></a><br />
+                        <a href="@Url.Action("Delete", "Configs", new { id = item.Id })" class="btn btn-danger fa fa-trash"></a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <div class="panel-footer">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+    </div>
+</section>

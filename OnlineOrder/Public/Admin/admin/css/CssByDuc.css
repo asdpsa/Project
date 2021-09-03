@@ -1,0 +1,20 @@
+﻿table, th, td {
+    border: 1px solid gray;
+}
+
+    table th {
+        text-align: center;
+    }
+
+    table .btn {
+        margin-top: 10px;
+        width: 50px;
+    }
+
+.panel-footer {
+    text-align: center;
+}
+
+form.input-form {
+    margin-top:20px;
+}

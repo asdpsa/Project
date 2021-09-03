@@ -1,0 +1,45 @@
+﻿@model OnlineOrder.Models.Advertisement
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/MainLayoutAdmin.cshtml";
+}
+
+<section class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>Details</h2>
+        </div>
+        <div class="panel-heading">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Image)
+                </dt>
+
+                <dd>
+                    <img src="@Url.Content(Model.Image)" alt="@Model.Image" style="width:130px;" />
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Key)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Key)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+            </dl>
+        </div>
+        <div class="panel-footer">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+</section>

@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/MainLayoutAdmin.cshtml";
+}
+<section class="content-header">
+    <p>
+        Order details
+    </p>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Default box -->
+    <div class="box">
+        <div class="box-header with-border">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="container123  col-md-6" style="">
+                        <h4></h4>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-4">Customer information</th>
+                                    <th class="col-md-6"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Ordering information
+                                    </td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Order date
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Phone number</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Adrress</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Description</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <table id="myTable" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting col-md-1">#</th>
+                                <th class="sorting_asc col-md-4">Image</th>
+                                <th class="sorting">Quantity</th>
+                                <th class="sorting">Price</th>
+                                <th class="sorting">Size</th>
+                                <th class="sorting">Frames</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td> VND</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><b>Total price</b></td>
+                                <td colspan="1"><b class="text-red"> VND</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <form action="" method="POST">
+                    <input type="hidden" name="_method" value="PUT">
+                    <div class="col-md-8"></div>
+                    <div class="col-md-4">
+                        <div class="form-inline">
+                            <label>Delivery Status:</label>
+                            <select name="status" class="form-control input-inline" style="width: 200px">
+                                <option value="1">Not delivery</option>
+                                <option value="2">Delivery in progress</option>
+                                <option value="3">Delivered</option>
+                            </select>
+
+                            <input type="submit" value="Handle" class="btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
